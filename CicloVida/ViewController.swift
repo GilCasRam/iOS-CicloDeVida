@@ -11,7 +11,30 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        /*Es llamada solo cuando la vista es creada. Es un buen momento para hacer cambios UI ya que estas seguro que la vista ya fue cargada en memoria y tienes acceso a todos sus elementos y conexione. Al ser un metodo que se manda a llamar una vez, es buen lugar para hacer cosas que solo necesitan hacer una vez, por ejemplo iniciar bases de datos o conexiones a servidores*/
+        print("estoy en el VC1 y se activo ->\(#function)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        /*En este metodo siempre se llama antes de que la vista del viewController se muestre en pantalla. Buen lugar para codigo que se requiere llamar cada que la vista se va a mostrar en pantalla, a ser potencialmente llamado tantas veces aqui no se recomienda escribir codigo que solo se requiere ejecutar una sola vez. Ejemplo de uso, seria usarlo para actualizar elementos de la UI que han cambiado cuando el ususario estaba en otra vista.*/
+        super.viewWillAppear(animated)
+        print("estoy en el VC1 y se activo ->\(#function)")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        /*Este metodo es llamado cuando la vista ya se desplego en pantalla. Al ya estar seguro que dicha vista ya esta en pantalla es buen lugar para iniciar procesos que pueden ser pesados para el CPU y por lo tanto podrian ocasionar problemas al mostar elementos de tu vista. Ejemplos: Iniciar musica, sonidos, videos, animacines o recolectar datos de un servidor.*/
+        print("estoy en el VC1 y se activo ->\(#function)")
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        /*Este metodo es llamado antes de que la vista sea removida de la pantalla. Su uso no es muy comun pero puedes usarla para iniciar limpieza o verificacione*/
+        print("estoy en el VC1 y se activo ->\(#function)")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        /*Este metodo se llama cuando la vista es removida de pantalla. Buen lugar para detener procesos que no se requieran cuando el usuario no ve esa pantalla que fue removida. Ejemplo: Detener musica, llamada a servidores o dispositivos externos ligados a esa vista.*/
+        print("estoy en el VC1 y se activo ->\(#function)")
     }
 
 
